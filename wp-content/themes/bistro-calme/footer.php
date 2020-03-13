@@ -4,13 +4,14 @@
     <div class="container">
         <div class="footer_inner">
             <nav>
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">わたしたちについて</a></li>
-                    <li><a href="#">アクセス</a></li>
-                    <li><a href="#">最新情報</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
-                </ul>
+                <?php
+				$args = array(
+					'menu' => 'global-navigation',//管理画面で作成したメニューの名前
+					'menu_class' => '',//メニューを構成するulタグのクラス名
+					'container' => false,//ulタグを囲んでいるdivタグを削除
+					);
+					wp_nav_menu($args);
+					?>
             </nav>
             <div class="footer_copyright">
                 <small>&copy; BISTRO CALME All rights reserved.</small>
@@ -19,7 +20,6 @@
     </div>
 </footer>
 
-<!-- スライドショー -->
 <?php
 if ( is_home() ){
     wp_enqueue_style( 'slick-carousel', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );

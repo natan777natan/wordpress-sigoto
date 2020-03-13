@@ -23,21 +23,19 @@ wp_head();
 
             <div class="header_desc"><p><?php bloginfo('description'); ?></p></div>
 
-            <form class="header_search">
-                <input type="text" placeholder="キーワードを入力">
-                <i class="fas fa-search"></i>
-            </form>
+            <?php get_search_form(); ?>
         </div>
 
         <div class="header_links">
             <nav class="gnav">
-                <ul class="">
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">わたしたちについて</a></li>
-                    <li><a href="#">アクセス</a></li>
-                    <li><a href="#">最新情報</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
-                </ul>
+                <?php
+                $args = array(
+                'menu' => 'global-navigation', // 管理画面で作成したメニューの名前
+                'menu_class' => '', // メニューを構成するulタグのクラス名
+                'container' => false, // <ul>タグを囲んでいる<div>タグを削除
+                );
+                wp_nav_menu($args);
+                ?>
             </nav>
 
             <ul class="header_sns">
